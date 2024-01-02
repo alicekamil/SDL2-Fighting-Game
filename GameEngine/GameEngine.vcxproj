@@ -185,7 +185,7 @@
     <ClCompile Include="GameObjects\ObjectRenderer.cpp" />
     <ClCompile Include="GameObjects\Player.cpp" />
     <ClCompile Include="GameObjects\Transform.cpp" />
-    <ClCompile Include="input.cpp" />
+    <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="Keyframe.cpp" />
     <ClCompile Include="Math\Bounds.cpp" />
     <ClCompile Include="Math\Vector.cpp" />
@@ -210,7 +210,7 @@
     <ClInclude Include="GameObjects\ObjectRenderer.h" />
     <ClInclude Include="GameObjects\Player.h" />
     <ClInclude Include="GameObjects\Transform.h" />
-    <ClInclude Include="input.h" />
+    <ClInclude Include="InputHandler.h" />
     <ClInclude Include="Keyframe.h" />
     <ClInclude Include="Math\Bounds.h" />
     <ClInclude Include="Math\Math.h" />

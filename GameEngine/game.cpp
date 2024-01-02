@@ -7,7 +7,7 @@
 #include <SDL_ttf.h>
 
 #include "GameLogic.h"
-#include "input.h"
+#include "InputHandler.h"
 #include "Window.h"
 #include "GameObjects/Collider.h"
 #include "GameObjects/ObjectRenderer.h"

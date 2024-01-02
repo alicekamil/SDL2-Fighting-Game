@@ -14,18 +14,20 @@ class Command
 {
 public:
     virtual ~Command() {}
-    virtual void execute(GameObject* character) = 0;
+    virtual void Execute(GameObject* character) = 0;
 };
 
 class Move : public Command 
 {
+    
     float direction;
+    
 public:
     Move(float direction) : direction(direction)
     {        
     }
     
-    void execute(GameObject* gameObject)
+    void Execute(GameObject* gameObject)
     {
         auto player = gameObject->GetComponent<Player>();
         player->Move(direction);
@@ -34,7 +36,7 @@ public:
 
 class Punch : public Command
 {
-    void execute(GameObject* gameObject)
+    void Execute(GameObject* gameObject)
     {
         gameObject->GetComponent<Attack>()->StartPunch();
     }
@@ -42,7 +44,7 @@ class Punch : public Command
 
 class Jump : public Command
 {
-    void execute(GameObject* gameObject)
+    void Execute(GameObject* gameObject)
     {
         auto player = gameObject->GetComponent<Player>();
         player->Jump();
@@ -57,7 +59,7 @@ public:
     {
         
     }
-    void execute(GameObject* gameObject)
+    void Execute(GameObject* gameObject)
     {
         gameObject->GetComponent<Player>()->Crouch(isCrouching);
     }
@@ -83,7 +85,7 @@ class InputHandler
     //std::array<Command*, MAX_ACTION_INDEX> commands; //c++11 array
     
 public:
-    std::vector<Command*> handleInput();
+    std::vector<Command*> HandleInput();
     InputHandler(InputScheme* inputScheme);
     ~InputHandler();
     

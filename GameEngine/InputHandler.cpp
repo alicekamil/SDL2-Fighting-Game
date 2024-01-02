@@ -1,14 +1,15 @@
-#include "input.h"
+#include "InputHandler.h"
 #
 #include <SDL_keyboard.h>
 #include <SDL_stdinc.h>
 
 using namespace std;
 
+// Responsible for creating each command
 InputHandler::InputHandler(InputScheme* inputScheme)
 {
 
-    this->inputScheme = inputScheme; //&inputScheme turns into ptr , inputScheme& then its reference?
+    this->inputScheme = inputScheme; 
         
     buttonLeftHold = new Move(-1.f);
     buttonLeftRelease = new Move(0);
@@ -36,10 +37,12 @@ InputHandler::~InputHandler()
     delete inputScheme;
 }
 
- std::vector<Command*> InputHandler::handleInput()
+// Returning commands based on the active input
+ std::vector<Command*> InputHandler::HandleInput()
 {
     std::vector<Command*> commands = { };
-    
+
+    // Current keystate, press, hold, up
     const Uint8* keystate = SDL_GetKeyboardState(NULL);
     if (keystate[inputScheme->left] && previousKeyState[inputScheme->left]) commands.push_back(buttonLeftHold);
     if (!keystate[inputScheme->left] && previousKeyState[inputScheme->left]) commands.push_back(buttonLeftRelease);

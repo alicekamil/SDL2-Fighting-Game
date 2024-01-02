@@ -3,7 +3,7 @@
 #include <SDL_scancode.h>
 
 #include "Player.h"
-#include "../input.h"
+#include "..\InputHandler.h"
 
 void CommandManager::Start()
 {
@@ -17,15 +17,15 @@ void CommandManager::Update(float deltaTime)
 {
     Component::Update(deltaTime);
 
-    std::vector<Command*> commandsForPlayer1 = inputHandler1->handleInput();
+    std::vector<Command*> commandsForPlayer1 = inputHandler1->HandleInput();
     for (auto command : commandsForPlayer1)
     {
-        command->execute(player1);
+        command->Execute(player1);
     }
-    std::vector<Command*> commandsForPlayer2 = inputHandler2->handleInput();
+    std::vector<Command*> commandsForPlayer2 = inputHandler2->HandleInput();
     for (auto command : commandsForPlayer2)
     {
-        command->execute(player2);
+        command->Execute(player2);
     }
 }
 

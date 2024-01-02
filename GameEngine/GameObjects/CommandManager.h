@@ -1,6 +1,6 @@
 #pragma once
 #include "Component.h"
-#include "../input.h"
+#include "..\InputHandler.h"
 
 class Player;
 
